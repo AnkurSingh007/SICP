@@ -1,0 +1,14 @@
+ng sicp
+(define (square a) (* a a))
+
+(define (sum_square a b) (+ (square a) (square b)))
+
+(define (square-sum-larger a b c)
+  (cond ((and (>= a b) (>= b c)) (sum_square a b))
+        ((and (>= a b) (< b c)) (sum_square a b))
+        ((and (< a b) (>= a c)) (sum_square a b))
+        ((and (< a b) (< a c)) (sum_square b c))
+  )
+)
+
+(square-sum-larger 3 3 1)
